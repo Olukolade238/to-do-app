@@ -13,7 +13,7 @@ function TaskItem( {task, dispatch} ) {
         setEditing(false);
     }
 
-    return(
+    return (
         <div>
             <li className={`task-item ${task.done ? 'done' : ''}`}>
                 <span className={`dot ${task.done ? 'green' : 'gray'}`} />
@@ -30,6 +30,26 @@ function TaskItem( {task, dispatch} ) {
                         <p className='task-date'>{task.name}</p>
                     </div>
                 )}
+                <div>
+                    <button 
+                        onClick={() => dispatch({ type: 'COMPLETE', id: task.id })}
+                        title={task.done ? 'Mark incomplete' : 'Mark complete'}
+                    >
+                        {task.done ? <FaUndo /> : <FaCheck />}
+                    </button>
+                    <button 
+                        onClick={() => { setEditing(true); setEditText(task.text); }}
+                        title="Edit"
+                    >
+                        <FaEdit />
+                    </button>
+                    <button 
+                        onClick={() => dispatch({ type: 'DELETE', id: task.id })}
+                        title="Delete"
+                    >
+                        <FaTrash />
+                    </button>
+                </div>
             </li>
         </div>
     );
