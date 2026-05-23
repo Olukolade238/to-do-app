@@ -16,8 +16,9 @@ function TaskForm( {dispatch} ) {
         <>
             <form onSubmit={submit} className='task-form'>
                 <input 
-                    type={text}
-                    onChange={e => setText(e.target.type)}
+                    type="text"
+                    value={text}
+                    onChange={e => setText(e.target.value)}
                     placeholder='Add a New Task...'
                 />
                 <button type='Submit'>Add</button>

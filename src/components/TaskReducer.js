@@ -1,5 +1,3 @@
-import { useReducer } from 'react';
-
 function tasksReducer(tasks, action) {
   switch(action.type) {
     case 'ADD':
@@ -30,3 +28,5 @@ function tasksReducer(tasks, action) {
       return tasks;
   }
 }
+
+export default tasksReducer;

@@ -1,13 +1,13 @@
 import { useReducer, useEffect } from 'react';
 import TaskForm from "./components/TaskForm";
 import TaskItem from './components/TaskItem';
-import TaskReducer from './components/TaskReducer';
+import TasksReducer from './components/TaskReducer';
 
 function App() {
   // Load saved tasks from localStorage (or use empty array if none exist)
   const savedTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
 
-  const [tasks, dispatch] = useReducer(tasksReducer, savedTasks);
+  const [tasks, dispatch] = useReducer(TasksReducer, savedTasks);
 
   // Every time tasks changes, save them to localStorage
   useEffect(() => {
