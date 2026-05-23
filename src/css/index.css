@@ -2,289 +2,279 @@
 @import './reset.css';
 
 :root {
-  --gold:        #C9A84C;
-  --gold-light:  #E8C96A;
-  --gold-dim:    #7A5E28;
-  --gold-glow:   rgba(201,168,76,0.15);
-  --bg:          #0D0D0D;
-  --surface:     #161616;
-  --surface-2:   #1F1F1F;
-  --surface-3:   #272727;
-  --border:      rgba(255,255,255,0.07);
-  --border-gold: rgba(201,168,76,0.35);
-  --text-1:      #F0ECE0;
-  --text-2:      #A09880;
-  --text-3:      #5C5648;
-  --green:       #4ADE80;
-  --green-dim:   rgba(74,222,128,0.12);
-  --red:         #F87171;
-  --font:        'Outfit', system-ui, sans-serif;
+    --gold:        #C9A84C;
+    --gold-light:  #E8C96A;
+    --gold-dim:    #7A5E28;
+    --gold-glow:   rgba(201,168,76,0.15);
+    --bg:          #0D0D0D;
+    --surface:     #161616;
+    --surface-2:   #1F1F1F;
+    --surface-3:   #272727;
+    --border:      rgba(255,255,255,0.07);
+    --border-gold: rgba(201,168,76,0.35);
+    --text-1:      #F0ECE0;
+    --text-2:      #A09880;
+    --text-3:      #5C5648;
+    --green:       #4ADE80;
+    --green-dim:   rgba(74,222,128,0.12);
+    --red:         #F87171;
+    --font:        'Outfit', system-ui, sans-serif;
 }
 
 body {
-  font-family: var(--font);
-  background: var(--bg);
-  color: var(--text-1);
-  min-height: 100vh;
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text-1);
+    min-height: 100vh;
 }
 
 /* LAYOUT */
 .app {
-  display: flex;
-  height: 100vh;
-  overflow: hidden;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
 }
 
 /* SIDEBAR */
 .sidebar {
-  width: 260px;
-  background: var(--surface);
-  border-right: 1px solid var(--border-gold);
-  padding: 36px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  overflow: hidden;
+    width: 260px;
+    background: var(--surface);
+    border-right: 1px solid var(--border-gold);
+    padding: 36px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow: hidden;
 }
 
 .sidebar h2 {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--gold);
-  letter-spacing: 12px;
-  text-transform: uppercase;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--border-gold);
-  margin-bottom: 4px;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gold);
+    text-transform: uppercase;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-gold);
+    margin-bottom: 4px;
 }
 
 .sidebar p {
-  color: var(--text-2);
-  font-size: 14px;
-  padding: 12px 14px;
-  background: var(--surface-2);
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    color: var(--text-2);
+    font-size: 14px;
+    padding: 12px 14px;
+    background: var(--surface-2);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* highlight the number part — the last word in "Total: 5" */
 .sidebar p strong,
 .sidebar p b {
-  color: var(--gold);
-  font-size: 20px;
-  font-weight: 600;
+    color: var(--gold);
+    font-size: 20px;
+    font-weight: 600;
 }
 
 /* ── MAIN ── */
 .main {
-  flex: 1;
-  padding: 40px 44px;
-  overflow-y: auto;
-  background: var(--bg);
-  scrollbar-width: thin;
-  scrollbar-color: var(--surface-3) transparent;
+    flex: 1;
+    padding: 40px 44px;
+    overflow-y: auto;
+    background: var(--bg);
+    scrollbar-width: thin;
+    scrollbar-color: var(--surface-3) transparent;
 }
 
 h1 {
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--text-1);
-  margin-bottom: 24px;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-1);
+    margin-bottom: 24px;
 }
 
 /* ── TASK FORM ── */
 .task-form {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 28px;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 28px;
 }
 
 .task-form input {
-  flex: 1;
-  padding: 13px 18px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text-1);
-  font-size: 14.5px;
-  font-family: var(--font);
-  outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
+    flex: 1;
+    padding: 13px 18px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-1);
+    font-size: 15px;
+    font-family: var(--font);
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .task-form input::placeholder { color: var(--text-3); }
 
 .task-form input:focus {
-  border-color: var(--gold-dim);
-  box-shadow: 0 0 0 3px var(--gold-glow);
+    border-color: var(--gold-dim);
+    box-shadow: 0 0 0 3px var(--gold-glow);
 }
 
 .task-form button {
-  padding: 13px 26px;
-  border-radius: 10px;
-  border: 1px solid var(--gold-dim);
-  background: var(--gold-glow);
-  color: var(--gold-light);
-  font-size: 14px;
-  font-weight: 600;
-  font-family: var(--font);
-  letter-spacing: 0.04em;
-  cursor: pointer;
-  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.1s;
+    padding: 13px 26px;
+    border-radius: 10px;
+    border: 1px solid var(--gold-dim);
+    background: var(--gold-glow);
+    color: var(--gold-light);
+    font-size: 14px;
+    font-weight: 600;
+    font-family: var(--font);
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.1s;
 }
 
 .task-form button:hover {
-  background: var(--gold);
-  border-color: var(--gold);
-  color: #0D0D0D;
+    background: var(--gold);
+    border-color: var(--gold);
+    color: #0D0D0D;
 }
 
 .task-form button:active { transform: scale(0.97); }
 
-/* ── TASK LIST ── */
+/* TASK LIST */
 .task-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-/* ── TASK ITEM ── */
+/* TASK ITEM */
 .task-item {
-  background: var(--surface);
-  padding: 14px 18px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  border: 1px solid var(--border);
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+    background: var(--surface);
+    padding: 14px 18px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
 }
 
 .task-item:hover {
-  border-color: var(--border-gold);
-  box-shadow: 0 0 0 1px var(--border-gold), 0 6px 24px var(--gold-glow);
-  transform: translateY(-1px);
+    border-color: var(--border-gold);
+    box-shadow: 0 0 0 1px var(--border-gold), 0 6px 24px var(--gold-glow);
+    transform: translateY(-1px);
 }
 
 .task-item.done {
-  opacity: 0.4;
+    opacity: 0.4;
 }
 
 .task-item.done:hover {
-  transform: none;
-  box-shadow: none;
-  border-color: var(--border);
+    transform: none;
+    box-shadow: none;
+    border-color: var(--border);
 }
 
-/* ── DOT ── */
+/* DOT */
 .dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  flex-shrink: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
 }
 
 .green { background: var(--green); box-shadow: 0 0 8px var(--green); }
 .gray  { background: var(--text-3); }
 
-/* ── TASK TEXT ── */
+/* TASK TEXT */
 .task-body { flex: 1; min-width: 0; }
 
 .task-text {
-  font-weight: 500;
-  font-size: 14.5px;
-  color: var(--text-1);
-  display: block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    font-weight: 500;
+    font-size: 14.5px;
+    color: var(--text-1);
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .task-item.done .task-text {
-  text-decoration: line-through;
-  color: var(--text-3);
+    text-decoration: line-through;
+    color: var(--text-3);
 }
 
 .task-date {
-  font-size: 11.5px;
-  color: var(--text-3);
-  margin-top: 3px;
+    font-size: 12px;
+    color: var(--text-3);
+    margin-top: 3px;
 }
 
 /* ── EDIT INPUT ── */
 .edit-input {
-  flex: 1;
-  padding: 8px 12px;
-  border-radius: 8px;
-  border: 1px solid var(--gold-dim);
-  background: var(--surface-2);
-  color: var(--text-1);
-  font-size: 14px;
-  font-family: var(--font);
-  outline: none;
-  box-shadow: 0 0 0 3px var(--gold-glow);
+    flex: 1;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--gold-dim);
+    background: var(--surface-2);
+    color: var(--text-1);
+    font-size: 14px;
+    font-family: var(--font);
+    outline: none;
+    box-shadow: 0 0 0 3px var(--gold-glow);
 }
 
-/* ── ACTION BUTTONS ── */
+/* ACTION BUTTONS */
 .task-actions {
-  display: flex;
-  gap: 6px;
-  flex-shrink: 0;
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
 }
 
 .task-actions button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: var(--surface-2);
-  color: var(--text-2);
-  font-size: 13px;
-  cursor: pointer;
-  transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.1s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    color: var(--text-2);
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.1s;
 }
 
 .task-actions button:hover {
-  background: var(--surface-3);
-  border-color: rgba(255,255,255,0.14);
-  color: var(--gold-light);
-  transform: scale(1.08);
+    background: var(--surface-3);
+    border-color: rgba(255,255,255,0.14);
+    color: var(--gold-light);
+    transform: scale(1.08);
 }
 
 .task-actions button:active { transform: scale(0.94); }
 
 /* complete = green tint */
 .task-actions button:nth-child(1):hover {
-  color: var(--green);
-  border-color: rgba(74,222,128,0.3);
-  background: var(--green-dim);
+    color: var(--green);
+    border-color: rgba(74,222,128,0.3);
+    background: var(--green-dim);
 }
 
 /* delete = red tint */
 .task-actions button:nth-child(3):hover {
-  color: var(--red);
-  border-color: rgba(248,113,113,0.3);
-  background: rgba(248,113,113,0.1);
+    color: var(--red);
+    border-color: rgba(248,113,113,0.3);
+    background: rgba(248,113,113,0.1);
 }
 
-/* ── EMPTY STATE ── */
+/* EMPTY STATE */
 .empty {
-  text-align: center;
-  margin-top: 52px;
-  color: var(--text-3);
-  font-size: 15px;
-  letter-spacing: 0.04em;
+    text-align: center;
+    margin-top: 52px;
+    color: var(--text-3);
+    font-size: 15px;
 }
-
-/* ── GLOBAL SCROLLBAR ── */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--surface-3); border-radius: 99px; }
