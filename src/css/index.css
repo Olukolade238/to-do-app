@@ -51,7 +51,7 @@ body {
   font-size: 22px;
   font-weight: 700;
   color: var(--gold);
-  letter-spacing: 0.1em;
+  letter-spacing: 12px;
   text-transform: uppercase;
   padding-bottom: 16px;
   border-bottom: 1px solid var(--border-gold);
@@ -60,7 +60,7 @@ body {
 
 .sidebar p {
   color: var(--text-2);
-  font-size: 13.5px;
+  font-size: 14px;
   padding: 12px 14px;
   background: var(--surface-2);
   border-radius: 10px;
@@ -88,15 +88,10 @@ body {
   scrollbar-color: var(--surface-3) transparent;
 }
 
-.main::-webkit-scrollbar { width: 5px; }
-.main::-webkit-scrollbar-track { background: transparent; }
-.main::-webkit-scrollbar-thumb { background: var(--surface-3); border-radius: 99px; }
-
 h1 {
   font-size: 32px;
   font-weight: 700;
   color: var(--text-1);
-  letter-spacing: -0.02em;
   margin-bottom: 24px;
 }
 
