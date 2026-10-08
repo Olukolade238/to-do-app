@@ -1,70 +1,128 @@
-# Getting Started with Create React App
+<div align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# TaskFlow
 
-## Available Scripts
+**A clean, dark-themed to-do app with categories, priorities, filters and persistent storage.**
 
-In the project directory, you can run:
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white&style=flat-square)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript&logoColor=black&style=flat-square)
+![CSS3](https://img.shields.io/badge/CSS3-Custom%20Properties-1572B6?logo=css3&logoColor=white&style=flat-square)
+![Storage](https://img.shields.io/badge/Storage-localStorage-C9A84C?style=flat-square)
 
-### `npm start`
+[**Live Demo**](https://Olukolade238.github.io/to-do-app)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![TaskFlow desktop view](../to-do/doc/screenshot-desktop.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+</div>
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Overview
 
-### `npm run build`
+TaskFlow is a task manager built with React. It focuses on a polished interface and predictable state management: every action goes through a single `useReducer` reducer, and tasks persist in the browser, so nothing is lost on refresh.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The first time you open the app it loads a set of **demo tasks**, so you can explore every feature straight away. **Reset demo data** in the sidebar brings them back at any time.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Add, edit, complete and delete** tasks (press `Enter` to save an edit, `Esc` to cancel)
+- **Categories** (Work, Study, Personal, Health) shown as colour-coded badges
+- **Priority levels** (High, Medium, Low) with a colour accent bar on each task
+- **Filters** for All, Active and Completed, each with a live count
+- **Progress tracking** with total, remaining and done stats plus a progress bar
+- **Clear completed** to remove finished tasks in one click
+- **Persistent storage** through `localStorage`
+- **Responsive layout** that adapts from desktop to mobile
+- **Accessible controls** with ARIA labels, keyboard focus styles and checkbox semantics
 
-### `npm run eject`
+## Tech Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+| Area | Tools |
+| --- | --- |
+| UI | React 19 (functional components and hooks) |
+| State | `useReducer` with a pure reducer |
+| Styling | Plain CSS with custom properties, Flexbox and Grid |
+| Icons | [react-icons](https://react-icons.github.io/react-icons/) |
+| Font | [Outfit](https://fonts.google.com/specimen/Outfit) |
+| Tooling | Create React App, `gh-pages` for deployment |
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Getting Started
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+**Prerequisites:** [Node.js](https://nodejs.org/) 18 or newer.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+# 1. Clone the repository
+git clone https://github.com/Olukolade238/to-do-app.git
+cd to-do-app
 
-## Learn More
+# 2. Install dependencies
+npm install
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# 3. Start the dev server
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Code Splitting
+### Other scripts
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+| Command | What it does |
+| --- | --- |
+| `npm start` | Runs the app in development mode |
+| `npm run build` | Creates an optimized production build in `build/` |
+| `npm test` | Runs the test runner |
+| `npm run deploy` | Builds and publishes to GitHub Pages |
 
-### Analyzing the Bundle Size
+## Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+src/
+├── components/
+│   ├── TaskForm.js      # Add-task form (text, category, priority)
+│   ├── TaskItem.js      # Single task: check, inline edit, delete
+│   └── TaskReducer.js   # ADD / UPDATE / COMPLETE / DELETE / CLEAR_COMPLETED / RESET
+├── data/
+│   └── seedTasks.js     # Demo tasks loaded on first visit
+├── css/
+│   ├── reset.css        # Modern CSS reset
+│   └── index.css        # Theme variables and component styles
+├── App.js               # Layout, filters, stats, localStorage sync
+└── index.js
+```
 
-### Making a Progressive Web App
+## How It Works
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+State changes are described as actions and handled in one place:
 
-### Advanced Configuration
+```js
+dispatch({ type: 'ADD', text, priority, category });
+dispatch({ type: 'COMPLETE', id });
+dispatch({ type: 'CLEAR_COMPLETED' });
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+`App.js` saves the task list to `localStorage` whenever it changes. On the first visit, when nothing has been saved yet, it loads the demo tasks. After that, an empty list stays empty.
 
-### Deployment
+## Screenshots
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+<div align="center">
 
-### `npm run build` fails to minify
+| Desktop | Mobile |
+| --- | --- |
+| <img src="../to-do/doc/screenshot-desktop.png" alt="Desktop view" width="520"> | <img src="../to-do/doc/screenshot-mobile.png" alt="Mobile view" width="220"> |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+</div>
+
+## Roadmap
+
+- [ ] Due dates and overdue highlighting
+- [ ] Search and sort
+- [ ] Drag-and-drop reordering
+- [ ] Unit tests for the reducer
+
+## Author
+
+**Kolade Kaka** · Software Development student · [GitHub](https://github.com/Olukolade238)
+
+---
+
+<div align="center">If you like this project, consider giving it a ⭐</div>
