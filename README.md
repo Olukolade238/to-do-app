@@ -1,25 +1,13 @@
-<div align="center">
-
 # TaskFlow
 
 **A clean, dark-themed to-do app with categories, priorities, filters and persistent storage.**
 
-![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white&style=flat-square)
-![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript&logoColor=black&style=flat-square)
-![CSS3](https://img.shields.io/badge/CSS3-Custom%20Properties-1572B6?logo=css3&logoColor=white&style=flat-square)
-![Storage](https://img.shields.io/badge/Storage-localStorage-C9A84C?style=flat-square)
-
-[**Live Demo**](https://Olukolade238.github.io/to-do-app)
-
 ![TaskFlow desktop view](../to-do/doc/screenshot-desktop.png)
-
-</div>
-
 ---
 
 ## Overview
 
-TaskFlow is a task manager built with React. It focuses on a polished interface and predictable state management: every action goes through a single `useReducer` reducer, and tasks persist in the browser, so nothing is lost on refresh.
+To-Do App is a task manager built with React. It focuses on a polished interface and predictable state management: every action goes through a single `useReducer` reducer, and tasks persist in the browser, so nothing is lost on refresh.
 
 The first time you open the app it loads a set of **demo tasks**, so you can explore every feature straight away. **Reset demo data** in the sidebar brings them back at any time.
 
@@ -104,13 +92,11 @@ dispatch({ type: 'CLEAR_COMPLETED' });
 
 ## Screenshots
 
-<div align="center">
 
 | Desktop | Mobile |
 | --- | --- |
 | <img src="../to-do/doc/screenshot-desktop.png" alt="Desktop view" width="520"> | <img src="../to-do/doc/screenshot-mobile.png" alt="Mobile view" width="220"> |
 
-</div>
 
 ## Roadmap
 
@@ -125,4 +111,4 @@ dispatch({ type: 'CLEAR_COMPLETED' });
 
 ---
 
-<div align="center">If you like this project, consider giving it a ⭐</div>
+If you like this project, consider giving it a ⭐
